@@ -1,0 +1,5 @@
+./djblog_venv/
+.env
+db.sqlite3
+/htmlcov/
+.coverage
