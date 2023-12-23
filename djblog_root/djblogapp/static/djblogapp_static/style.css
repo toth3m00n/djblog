@@ -17,3 +17,18 @@ html, body {
 .fw-550 {
     font-weight: 550;
 }
+
+.infscroll h1 {
+    font-size: 22px;
+    letter-spacing: -0.6px;
+}
+
+@media only screen and (max-width: 768px) {
+    .infscroll h1 {
+    font-size: 15px;
+    letter-spacing: -0.0px;
+    }
+    .infscroll-author, infscroll-date{
+        font-size: 13px;
+    }
+}
