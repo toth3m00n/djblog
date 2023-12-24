@@ -6,5 +6,10 @@ from djblogapp.models import Post
 
 class HomeView(ListView):
     model = Post
-    template_name = 'djblogapp/index.html'
     context_object_name = "posts"
+    paginate_by = 10
+
+    def get_template_names(self):
+        if self.request.htmx:
+            return "djblogapp/components/post-list-elements.html"
+        return "djblogapp/index.html"
