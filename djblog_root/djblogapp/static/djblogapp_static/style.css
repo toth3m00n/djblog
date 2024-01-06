@@ -5,9 +5,8 @@
     letter-spacing: -1.5px;
 }
 
-.test {
-    font-family: 'Barlow', sans-serif;
-    font-family: 'Merriweather', serif;
+.fs-12 {
+    font-size: 12px;
 }
 
 html, body {
@@ -32,3 +31,5 @@ html, body {
         font-size: 13px;
     }
 }
+
+
