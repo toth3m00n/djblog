@@ -1,13 +1,45 @@
 {% extends "../base/3-col-template.html" %}
 
-{% block content-left %} aa {% endblock %}
+{% block title%} {{post.slug}} {% endblock %}
 
-{% block content-mid %}
-<div> {{ post.author }} </div>
-<div> {{ post.update_at |date:"M d" }} </div>
-<h1> {{ post.title }} </h1>
-<h2> {{ post.subtitle }} </h2>
-{{ post.content }}
+{% block content-left %}
+{% include "../base/secondary-navbar.html" %}
 {% endblock %}
 
-{% block content-right %} bb {% endblock %}
+{% block content-mid %}
+
+<div class="blogger center mx-auto" style="max-width: 683px;">
+    <div class="text-muted"> {{ post.author }} </div>
+    <div class="text-muted pb-5"> {{ post.update_at |date:"M d" }} </div>
+    <h1 class="fw-bold pb-2"> {{ post.title }} </h1>
+    <h2 class="text-muted fs-4 pb-4"> {{ post.subtitle }} </h2>
+    <div class="post">
+        {{ post.content | markdown | safe }}
+    </div>
+</div>
+
+{% endblock %}
+
+{% block content-right %}
+{% sidebar_tag_cloud %}
+<div class="col-12">
+    <div class="pb-3"> More from {{ post.author }}</div>
+        {% for post in related %}
+            <a class="text-decoration-none" href="{{post.get_absolute_url}}">
+                <div class="card mb-3 border-0 ps-1">
+                    <div class="row">
+                        <div class="col-8 pe-2">
+                            <span class="small"> {{ post.author }} </span>
+                            <h1 class="mb-1 fs-6 p-0 fw-bold"> {{ post.title|truncatechars:80 }}</h1>
+                        </div>
+
+                        <div class="col-4">
+                            <img src="https://picsum.photos/200/115" class="img-fluid">
+                        </div>
+
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+</div>
+{% endblock %}

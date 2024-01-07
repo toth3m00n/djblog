@@ -71,7 +71,10 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
             ],
-            "builtins": ["djblogapp.templatetags.tag_cloud"]
+            "builtins": [
+                "djblogapp.templatetags.tag_cloud",
+                "djblogapp.templatetags.markdown_proccesing"
+                ]
         },
     },
 ]
